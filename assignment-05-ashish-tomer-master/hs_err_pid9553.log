@@ -1,0 +1,357 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 716177408 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2627), pid=9553, tid=140656745867008
+#
+# JRE version:  (8.0_91-b14) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.91-b14 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fed2c008000):  JavaThread "Unknown thread" [_thread_in_vm, id=9554, stack(0x00007fed334f6000,0x00007fed335f7000)]
+
+Stack: [0x00007fed334f6000,0x00007fed335f7000],  sp=0x00007fed335f53b0,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xabc18a]  VMError::report_and_die()+0x2ba
+V  [libjvm.so+0x4fafeb]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8b
+V  [libjvm.so+0x91cbb3]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0x103
+V  [libjvm.so+0x91d109]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x29
+V  [libjvm.so+0x91740a]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2a
+V  [libjvm.so+0x98b033]  PSVirtualSpace::expand_by(unsigned long)+0x53
+V  [libjvm.so+0x97b177]  PSOldGen::initialize(ReservedSpace, unsigned long, char const*, int)+0xb7
+V  [libjvm.so+0x2d827a]  AdjoiningGenerations::AdjoiningGenerations(ReservedSpace, GenerationSizer*, unsigned long)+0x39a
+V  [libjvm.so+0x93ff76]  ParallelScavengeHeap::initialize()+0x1d6
+V  [libjvm.so+0xa849bb]  Universe::initialize_heap()+0xfb
+V  [libjvm.so+0xa84d2e]  universe_init()+0x3e
+V  [libjvm.so+0x63a575]  init_globals()+0x65
+V  [libjvm.so+0xa68f3e]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x23e
+V  [libjvm.so+0x6cede4]  JNI_CreateJavaVM+0x74
+C  [libjli.so+0x745e]  JavaMain+0x9e
+C  [libpthread.so.0+0x76ca]  start_thread+0xca
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00007fed2c008000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=9554, stack(0x00007fed334f6000,0x00007fed335f7000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 fd:00 2883635                            /opt/java/jdk1.8.0_91/bin/java
+00600000-00601000 rw-p 00000000 fd:00 2883635                            /opt/java/jdk1.8.0_91/bin/java
+0186d000-0188e000 rw-p 00000000 00:00 0                                  [heap]
+eab00000-100000000 rw-p 00000000 00:00 0 
+7fed24000000-7fed24270000 rwxp 00000000 00:00 0 
+7fed24270000-7fed2c000000 ---p 00000000 00:00 0 
+7fed2c000000-7fed2c035000 rw-p 00000000 00:00 0 
+7fed2c035000-7fed30000000 ---p 00000000 00:00 0 
+7fed305eb000-7fed30870000 rw-p 00000000 00:00 0 
+7fed30870000-7fed309c5000 ---p 00000000 00:00 0 
+7fed309c5000-7fed30a7b000 rw-p 00000000 00:00 0 
+7fed30a7b000-7fed30c71000 ---p 00000000 00:00 0 
+7fed30c71000-7fed30c8b000 r-xp 00000000 fd:00 2885383                    /opt/java/jdk1.8.0_91/jre/lib/amd64/libzip.so
+7fed30c8b000-7fed30e8b000 ---p 0001a000 fd:00 2885383                    /opt/java/jdk1.8.0_91/jre/lib/amd64/libzip.so
+7fed30e8b000-7fed30e8c000 rw-p 0001a000 fd:00 2885383                    /opt/java/jdk1.8.0_91/jre/lib/amd64/libzip.so
+7fed30e91000-7fed30e9b000 r-xp 00000000 fd:00 4334254                    /usr/lib64/libnss_files-2.24.so
+7fed30e9b000-7fed3109b000 ---p 0000a000 fd:00 4334254                    /usr/lib64/libnss_files-2.24.so
+7fed3109b000-7fed3109c000 r--p 0000a000 fd:00 4334254                    /usr/lib64/libnss_files-2.24.so
+7fed3109c000-7fed3109d000 rw-p 0000b000 fd:00 4334254                    /usr/lib64/libnss_files-2.24.so
+7fed3109d000-7fed310a3000 rw-p 00000000 00:00 0 
+7fed310a9000-7fed310d3000 r-xp 00000000 fd:00 2885378                    /opt/java/jdk1.8.0_91/jre/lib/amd64/libjava.so
+7fed310d3000-7fed312d3000 ---p 0002a000 fd:00 2885378                    /opt/java/jdk1.8.0_91/jre/lib/amd64/libjava.so
+7fed312d3000-7fed312d5000 rw-p 0002a000 fd:00 2885378                    /opt/java/jdk1.8.0_91/jre/lib/amd64/libjava.so
+7fed312d9000-7fed312e6000 r-xp 00000000 fd:00 2885382                    /opt/java/jdk1.8.0_91/jre/lib/amd64/libverify.so
+7fed312e6000-7fed314e6000 ---p 0000d000 fd:00 2885382                    /opt/java/jdk1.8.0_91/jre/lib/amd64/libverify.so
+7fed314e6000-7fed314e8000 rw-p 0000d000 fd:00 2885382                    /opt/java/jdk1.8.0_91/jre/lib/amd64/libverify.so
+7fed314e9000-7fed314f0000 r-xp 00000000 fd:00 4334287                    /usr/lib64/librt-2.24.so
+7fed314f0000-7fed316ef000 ---p 00007000 fd:00 4334287                    /usr/lib64/librt-2.24.so
+7fed316ef000-7fed316f0000 r--p 00006000 fd:00 4334287                    /usr/lib64/librt-2.24.so
+7fed316f0000-7fed316f1000 rw-p 00007000 fd:00 4334287                    /usr/lib64/librt-2.24.so
+7fed316f1000-7fed317f9000 r-xp 00000000 fd:00 4334230                    /usr/lib64/libm-2.24.so
+7fed317f9000-7fed319f8000 ---p 00108000 fd:00 4334230                    /usr/lib64/libm-2.24.so
+7fed319f8000-7fed319f9000 r--p 00107000 fd:00 4334230                    /usr/lib64/libm-2.24.so
+7fed319f9000-7fed319fa000 rw-p 00108000 fd:00 4334230                    /usr/lib64/libm-2.24.so
+7fed31a01000-7fed326c1000 r-xp 00000000 fd:00 2885361                    /opt/java/jdk1.8.0_91/jre/lib/amd64/server/libjvm.so
+7fed326c1000-7fed328c1000 ---p 00cc0000 fd:00 2885361                    /opt/java/jdk1.8.0_91/jre/lib/amd64/server/libjvm.so
+7fed328c1000-7fed32999000 rw-p 00cc0000 fd:00 2885361                    /opt/java/jdk1.8.0_91/jre/lib/amd64/server/libjvm.so
+7fed32999000-7fed329e4000 rw-p 00000000 00:00 0 
+7fed329e9000-7fed32ba6000 r-xp 00000000 fd:00 4334168                    /usr/lib64/libc-2.24.so
+7fed32ba6000-7fed32da5000 ---p 001bd000 fd:00 4334168                    /usr/lib64/libc-2.24.so
+7fed32da5000-7fed32da9000 r--p 001bc000 fd:00 4334168                    /usr/lib64/libc-2.24.so
+7fed32da9000-7fed32dab000 rw-p 001c0000 fd:00 4334168                    /usr/lib64/libc-2.24.so
+7fed32dab000-7fed32daf000 rw-p 00000000 00:00 0 
+7fed32db1000-7fed32db4000 r-xp 00000000 fd:00 4333075                    /usr/lib64/libdl-2.24.so
+7fed32db4000-7fed32fb3000 ---p 00003000 fd:00 4333075                    /usr/lib64/libdl-2.24.so
+7fed32fb3000-7fed32fb4000 r--p 00002000 fd:00 4333075                    /usr/lib64/libdl-2.24.so
+7fed32fb4000-7fed32fb5000 rw-p 00003000 fd:00 4333075                    /usr/lib64/libdl-2.24.so
+7fed32fb9000-7fed32fce000 r-xp 00000000 fd:00 2884996                    /opt/java/jdk1.8.0_91/lib/amd64/jli/libjli.so
+7fed32fce000-7fed331ce000 ---p 00015000 fd:00 2884996                    /opt/java/jdk1.8.0_91/lib/amd64/jli/libjli.so
+7fed331ce000-7fed331cf000 rw-p 00015000 fd:00 2884996                    /opt/java/jdk1.8.0_91/lib/amd64/jli/libjli.so
+7fed331d1000-7fed331e9000 r-xp 00000000 fd:00 4334266                    /usr/lib64/libpthread-2.24.so
+7fed331e9000-7fed333e9000 ---p 00018000 fd:00 4334266                    /usr/lib64/libpthread-2.24.so
+7fed333e9000-7fed333ea000 r--p 00018000 fd:00 4334266                    /usr/lib64/libpthread-2.24.so
+7fed333ea000-7fed333eb000 rw-p 00019000 fd:00 4334266                    /usr/lib64/libpthread-2.24.so
+7fed333eb000-7fed333ef000 rw-p 00000000 00:00 0 
+7fed333f1000-7fed33416000 r-xp 00000000 fd:00 4334377                    /usr/lib64/ld-2.24.so
+7fed334f6000-7fed334f9000 ---p 00000000 00:00 0 
+7fed334f9000-7fed335f9000 rw-p 00000000 00:00 0 
+7fed33609000-7fed33611000 rw-s 00000000 00:2a 173612                     /tmp/hsperfdata_ashish/9553
+7fed33615000-7fed33616000 rw-p 00000000 00:00 0 
+7fed33616000-7fed33617000 r--p 00025000 fd:00 4334377                    /usr/lib64/ld-2.24.so
+7fed33617000-7fed33618000 rw-p 00026000 fd:00 4334377                    /usr/lib64/ld-2.24.so
+7fed33618000-7fed33619000 rw-p 00000000 00:00 0 
+7fed33619000-7fed3361a000 r--p 00000000 00:00 0 
+7fed3361a000-7fed3361c000 rw-p 00000000 00:00 0 
+7ffee0881000-7ffee08a3000 rw-p 00000000 00:00 0                          [stack]
+7ffee0981000-7ffee0983000 r--p 00000000 00:00 0                          [vvar]
+7ffee0983000-7ffee0985000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xms1024m -Xmx1024m -XX:ReservedCodeCacheSize=128m -XX:MaxMetaspaceSize=256m 
+java_command: /usr/share/sbt/bin/sbt-launch.jar test
+java_class_path (initial): /usr/share/sbt/bin/sbt-launch.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/opt/java/jdk1.8.0_91
+PATH=/opt/java/jdk1.8.0_91/bin:/opt/java/jdk1.8.0_91/bin:/opt/jdk1.8.0_91/bin:/opt/java/jdk1.8.0_91/bin:/opt/java/jdk1.8.0_91/bin:/opt/jdk1.8.0_91/bin:/usr/lib64/qt-3.3/bin:/opt/java/jdk1.8.0_91/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/opt/idea-IC-163.11103.6/bin:/opt/sbt-0.13.13/sbt-launcher-packaging-0.13.13/bin:/home/ashish/.local/bin:/home/ashish/bin:/opt/java/jdk1.8.0_91/bin:/opt/idea-IC-163.11103.6/bin:/opt/sbt-0.13.13/sbt-launcher-packaging-0.13.13/bin:/opt/idea-IC-163.11103.6/bin:/opt/sbt-0.13.13/sbt-launcher-packaging-0.13.13/bin:/home/ashish/.local/bin:/home/ashish/bin:/opt/java/jdk1.8.0_91/bin:/opt/idea-IC-163.11103.6/bin:/opt/sbt-0.13.13/sbt-launcher-packaging-0.13.13/bin
+USERNAME=ashish
+LD_LIBRARY_PATH=/opt/idea-IC-163.11103.6/bin:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xabca10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xabca10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x919a20], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x919a20], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x919a20], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x919a20], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x91b050], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_IGN, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Fedora release 25 (Twenty Five)
+
+uname:Linux 4.9.4-201.fc25.x86_64 #1 SMP Tue Jan 17 18:58:54 UTC 2017 x86_64
+libc:glibc 2.24 NPTL 2.24 
+rlimit: STACK 8192k, CORE 0k, NPROC 13318, NOFILE 4096, AS infinity
+load average:0.68 0.75 0.77
+
+/proc/meminfo:
+MemTotal:        3500540 kB
+MemFree:          182564 kB
+MemAvailable:     308828 kB
+Buffers:           17484 kB
+Cached:           329264 kB
+SwapCached:        27384 kB
+Active:          2276004 kB
+Inactive:         625600 kB
+Active(anon):    2065988 kB
+Inactive(anon):   534008 kB
+Active(file):     210016 kB
+Inactive(file):    91592 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:        569340 kB
+SwapFree:         182112 kB
+Dirty:              8072 kB
+Writeback:             0 kB
+AnonPages:       2528244 kB
+Mapped:           217300 kB
+Shmem:             45092 kB
+Slab:             119092 kB
+SReclaimable:      53532 kB
+SUnreclaim:        65560 kB
+KernelStack:       12656 kB
+PageTables:        57804 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2319608 kB
+Committed_AS:    8971536 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      426752 kB
+DirectMap2M:     3213312 kB
+DirectMap1G:           0 kB
+
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 21 model 16 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, mmxext, 3dnowpref, lzcnt, sse4a, tsc, tscinvbit, tscinv, bmi1
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 16
+model name	: AMD A8-4500M APU with Radeon(tm) HD Graphics
+stepping	: 1
+microcode	: 0x6001119
+cpu MHz		: 1400.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 16
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf eagerfpu pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb cpb hw_pstate vmmcall bmi1 arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold
+bugs		: fxsave_leak sysret_ss_attrs null_seg
+bogomips	: 3793.15
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+processor	: 1
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 16
+model name	: AMD A8-4500M APU with Radeon(tm) HD Graphics
+stepping	: 1
+microcode	: 0x6001119
+cpu MHz		: 1600.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 17
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf eagerfpu pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb cpb hw_pstate vmmcall bmi1 arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold
+bugs		: fxsave_leak sysret_ss_attrs null_seg
+bogomips	: 3792.08
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+processor	: 2
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 16
+model name	: AMD A8-4500M APU with Radeon(tm) HD Graphics
+stepping	: 1
+microcode	: 0x6001119
+cpu MHz		: 1900.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 18
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf eagerfpu pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb cpb hw_pstate vmmcall bmi1 arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold
+bugs		: fxsave_leak sysret_ss_attrs null_seg
+bogomips	: 3792.17
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+processor	: 3
+vendor_id	: AuthenticAMD
+cpu family	: 21
+model		: 16
+model name	: AMD A8-4500M APU with Radeon(tm) HD Graphics
+stepping	: 1
+microcode	: 0x6001119
+cpu MHz		: 1700.000
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 19
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc extd_apicid aperfmperf eagerfpu pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt lwp fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb cpb hw_pstate vmmcall bmi1 arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold
+bugs		: fxsave_leak sysret_ss_attrs null_seg
+bogomips	: 3792.20
+TLB size	: 1536 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb eff_freq_ro
+
+
+
+Memory: 4k page, physical 3500540k(182564k free), swap 569340k(182112k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.91-b14) for linux-amd64 JRE (1.8.0_91-b14), built on Apr  1 2016 00:57:21 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Wed Feb  1 17:10:12 2017
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
